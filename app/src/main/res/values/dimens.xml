@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text Size -->
+    <dimen name="text_xbig">36sp</dimen>
+    <dimen name="text_big">20sp</dimen>
+    <dimen name="text_xnormal">24sp</dimen>
+    <dimen name="text_normal">16sp</dimen>
+    <dimen name="text_normal2">18sp</dimen>
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_small2">12sp</dimen>
+    <dimen name="text_small3">13sp</dimen>
+    <dimen name="text_xsmall">10sp</dimen>
+    <dimen name="text_xxsmall">8sp</dimen>
+
+
+    <!-- Common space size -->
+    <dimen name="line_half_h">0.5dp</dimen>
+    <dimen name="line_h">1dp</dimen>
+    <dimen name="line_bold_h">2dp</dimen>
+    <dimen name="space_half">4dp</dimen>
+    <dimen name="space_half2">6dp</dimen>
+    <dimen name="space_base2">7dp</dimen>
+    <dimen name="space_base">8dp</dimen>
+    <dimen name="space_ten">10dp</dimen>
+    <dimen name="space_twelve">12dp</dimen>
+    <dimen name="space_second">16dp</dimen>
+    <dimen name="space_twenty">20dp</dimen>
+    <dimen name="space_third">24dp</dimen>
+    <dimen name="space_fourth">32dp</dimen>
+    <dimen name="space_thirty_six">36dp</dimen>
+    <dimen name="space_fifth">40dp</dimen>
+    <dimen name="space_sixth">48dp</dimen>
+    <dimen name="space_seventh">56dp</dimen>
+    <dimen name="space_eighth">64dp</dimen>
+    <dimen name="space_ninth">72dp</dimen>
+    <dimen name="space_tenth">80dp</dimen>
+    <dimen name="space_eleventh">88dp</dimen>
+    <dimen name="space_twelfth">96dp</dimen>
+    <dimen name="space_thirteenth">104dp</dimen>
+    <dimen name="space_fourteenth">112dp</dimen>
+    <dimen name="space_fifteenth">120dp</dimen>
+    <dimen name="space_twentyth">160dp</dimen>
+    <dimen name="space_twentyth_first">168dp</dimen>
+    <dimen name="space_twentyth_second">176dp</dimen>
+    <dimen name="space_twentyth_third">184dp</dimen>
+    <dimen name="space_twentyth_fourth">192dp</dimen>
+    <dimen name="space_twentyth_fifth">200dp</dimen>
+    <dimen name="space_twentyth_sixth">208dp</dimen>
+    <dimen name="space_twentyth_seventh">216dp</dimen>
+    <dimen name="space_twentyth_eighth">224dp</dimen>
+    <dimen name="space_twentyth_ninth">232dp</dimen>
+
+    <dimen name="common_enable_button_1_h">36dp</dimen>
+    <dimen name="common_enable_button_1_w">123dp</dimen>
+
+    <dimen name="common_normal_button_1_h">36dp</dimen>
+    <dimen name="common_normal_button_1_w">160dp</dimen>
+
+    <dimen name="common_switch_button_wh">32dp</dimen>
+
+
+    <dimen name="common_icon_small_wh">18dp</dimen>
+    <dimen name="common_icon_wh">48dp</dimen>
+    <dimen name="common_icon_big_wh">80dp</dimen>
+    <dimen name="common_timepicker_margin">-10dp</dimen>
+
+
+</resources>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SaveNovel</string>
+
+    <string name="common_confirm">確定</string>
+    <string name="common_cencel">取消</string>
+    <string name="common_loading">Loading…</string>
+
+
+
+    <string name="file_permission">需要資料儲存權限以儲存小說</string>
+    <string name="txt_copyright_warning">******************警********告********************\n原文來自%1$s，\n版權歸原作者所有，請勿用於二次傳播及任何商業用途\n**************************************************</string>
+    <string name="txt_summary">大綱：</string>
+    <string name="error_no_support_web">未支援之網站</string>
+    <string name="error_empty_url">請輸入文章網址</string>
+    <string name="error_save_failed">存檔失敗</string>
+    <string name="error_null_folder">請先選擇儲存資料夾</string>
+    <string name="error_parse_url_failed">解析網頁失敗</string>
+
+    <string name="save_success">儲存成功</string>
+    <string name="input_url">請填上要儲存的網站網址，目前支援AO3及Lofter。</string>
+
+
+</resources>

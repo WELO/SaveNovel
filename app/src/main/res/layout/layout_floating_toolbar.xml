@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="isToolOpen"
+                type="Boolean"/>
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+        <LinearLayout
+                android:id="@+id/view_tool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toStartOf="@id/btn_tool_list">
+
+            <ImageView
+                    android:id="@+id/btn_save_noval"
+                    android:layout_width="@dimen/common_icon_wh"
+                    android:layout_height="@dimen/common_icon_wh"
+                    android:background="@drawable/background_circle_blue_3"
+                    android:src="@drawable/ic_add_circle_outline"
+                    android:padding="@dimen/space_base"
+                    android:layout_margin="@dimen/space_half"
+                    android:visibility="@{isToolOpen?View.VISIBLE:View.GONE}"/>
+
+            <ImageView
+                    android:id="@+id/btn_setting"
+                    android:layout_width="@dimen/common_icon_wh"
+                    android:layout_height="@dimen/common_icon_wh"
+                    android:background="@drawable/background_circle_blue_2"
+                    android:src="@drawable/ic_settings_applications"
+                    android:padding="@dimen/space_base"
+                    android:layout_margin="@dimen/space_half"
+                    android:visibility="@{isToolOpen?View.VISIBLE:View.GONE}"/>
+
+            <ImageView
+                    android:id="@+id/btn_close_floatwindow"
+                    android:layout_width="@dimen/common_icon_wh"
+                    android:layout_height="@dimen/common_icon_wh"
+                    android:background="@drawable/background_circle_black"
+                    android:src="@drawable/ic_clear"
+                    android:padding="@dimen/space_base"
+                    android:layout_margin="@dimen/space_half"
+                    android:visibility="@{isToolOpen?View.VISIBLE:View.GONE}"/>
+        </LinearLayout>
+
+        <ImageView
+                android:id="@+id/btn_tool_list"
+                android:layout_width="@dimen/common_icon_wh"
+                android:layout_height="@dimen/common_icon_wh"
+                android:background="@drawable/background_circle_blue_4"
+                android:src="@{isToolOpen?@drawable/ic_chevron_right:@drawable/ic_action_list}"
+                android:padding="@dimen/space_base"
+                android:layout_margin="@dimen/space_half"
+                android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+</layout>
