@@ -123,7 +123,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
     }
 
     public void lofterParseUrl(View view) {
-        String url = "http://tellmewhythx.lofter.com/post/30e6cc96_1c6c72ec3";
+        String url = "Test lofter url";
         TextParser.UrlPaser(url)
                 .flatMapCompletable(this::saveArticle)
                 .subscribeOn(Schedulers.io())
@@ -135,7 +135,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
     }
 
     public void ao3ParseUrlSingle(View view) {
-        String url = "https://archiveofourown.org/works/19998790/chapters/47350702";
+        String url = "Test ao3 url";
         TextParser.UrlPaser(url)
                 .flatMapCompletable(this::saveArticle)
                 .subscribeOn(Schedulers.io())
@@ -147,7 +147,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
     }
 
     public void ao3ParseUrlMuti(View view) {
-        String url = "https://archiveofourown.org/works/20105455/chapters/47626135";
+        String url = "Test ao3 url";
         TextParser.UrlPaser(url)
                 .flatMapCompletable(this::saveArticle)
                 .subscribeOn(Schedulers.io())
