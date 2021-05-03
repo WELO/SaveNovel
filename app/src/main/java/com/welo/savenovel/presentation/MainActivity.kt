@@ -9,7 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.codekidlabs.storagechooser.StorageChooser
+import butterknife.Unbinder
+import com.obsez.android.lib.filechooser.ChooserDialog
 import com.welo.savenovel.R
 import com.welo.savenovel.domain.interactor.textparser.TextParser
 import com.welo.savenovel.domain.model.Article
@@ -32,17 +33,22 @@ import java.util.*
 
 @SuppressLint("CheckResult")
 class MainActivity : BaseActivity(), PermissionCallbacks {
+
     @BindView(R.id.tv_folder_path)
-    var tvFolderPath: TextView? = null
+    lateinit var tvFolderPath: TextView
+
     @BindView(R.id.tv_url_path)
-    var tvUrlPath: TextView? = null
+    lateinit var tvUrlPath: TextView
     private val perms = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
     private val PERMISSION_RESULT_CODE = 100
-    private var floatingToolbar: FloatingToolbar? = null
+    private lateinit var floatingToolbar: FloatingToolbar
+
+    var unbinder : Unbinder? = null;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ButterKnife.bind(this)
+        unbinder = ButterKnife.bind(this)
         initView()
         initFloatingWindow()
     }
@@ -50,7 +56,7 @@ class MainActivity : BaseActivity(), PermissionCallbacks {
     private fun initFloatingWindow() {
         floatingToolbar = FloatingToolbar(applicationContext)
         //floatingToolbar.init();
-        floatingToolbar!!.setOnUrlinputListener { url: String? ->
+        floatingToolbar.setOnUrlinputListener { url: String? ->
             TextParser.UrlPaser(url)
                     .flatMapCompletable { article: Article -> saveArticle(article) }
                     .subscribeOn(Schedulers.io())
@@ -61,7 +67,7 @@ class MainActivity : BaseActivity(), PermissionCallbacks {
 
     private fun initView() {
         val filePath = SharedPrefMgr.loadSharedPref(context, Define.SPFS_SAVE_DIRECTORY, "", Define.SPFS_CATEGORY)
-        tvFolderPath!!.text = filePath
+        tvFolderPath.text = filePath
     }
 
     fun folderChooser(view: View?) {
@@ -74,24 +80,20 @@ class MainActivity : BaseActivity(), PermissionCallbacks {
     }
 
     private fun folderChooserDailog() {
-        val chooser = StorageChooser.Builder()
-                .withActivity(activity)
-                .withFragmentManager(fragmentManager)
-                .withMemoryBar(true)
-                .allowCustomPath(true)
-                .setType(StorageChooser.DIRECTORY_CHOOSER)
-                .build()
-        chooser.setOnSelectListener { path: String ->
-            // e.g /storage/emulated/0/Documents
-            SharedPrefMgr.saveSharedPref(context, Define.SPFS_SAVE_DIRECTORY, path, Define.SPFS_CATEGORY)
-            Timber.d("path = $path")
-            tvFolderPath!!.text = path
-        }
-        chooser.show()
+        ChooserDialog(this)
+            .withFilter(true, false)
+            .withStartFile(tvFolderPath.text as String?) // to handle the result(s)
+            .withChosenListener({ dir, dirFile ->
+                SharedPrefMgr.saveSharedPref(context, Define.SPFS_SAVE_DIRECTORY, dir, Define.SPFS_CATEGORY)
+                Timber.d("path = $dir")
+                tvFolderPath.text = dir
+            })
+            .build()
+            .show()
     }
 
     fun parseUrl(view: View?) {
-        val url = tvUrlPath!!.text.toString()
+        val url = tvUrlPath.text.toString()
         showProgressDialog()
         hideKeybroad()
         TextParser.UrlPaser(url)
@@ -101,8 +103,9 @@ class MainActivity : BaseActivity(), PermissionCallbacks {
                 .doFinally { hideProgressDialog() }
                 .subscribe({
                     showToast(R.string.save_success)
-                    tvUrlPath!!.text = ""
+                    tvUrlPath.text = ""
                 }) { throwable: Throwable -> errorHandle(throwable) }
+
     }
 
     fun lofterParseUrl(view: View?) {
@@ -133,7 +136,7 @@ class MainActivity : BaseActivity(), PermissionCallbacks {
     }
 
     fun showFloatWindow(view: View?) {
-        floatingToolbar!!.hide()
+        floatingToolbar.hide()
     }
 
     fun saveArticle(article: Article): Completable {
@@ -208,10 +211,14 @@ class MainActivity : BaseActivity(), PermissionCallbacks {
     }
 
     override fun onPermissionsDenied(requestCode: Int, permsList: List<String>) {
-        var perms = arrayOfNulls<String>(permsList.size)
-        perms = permsList.toArray<String>(perms)
+        val perms = permsList.toTypedArray()
         if (perms.size > 0) {
             EasyPermissions.requestPermissions(this, getString(R.string.file_permission), PERMISSION_RESULT_CODE, *perms)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unbinder!!.unbind()
     }
 }

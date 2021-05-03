@@ -14,6 +14,7 @@ import java.io.IOException
  */
 object AO3Parser {
     private const val allowAdult = "?view_adult=true"
+    @JvmStatic
     fun AO3Paser(queryUrl: String): Single<Article?> {
         val url = getAllowAdultUrl(queryUrl)
         return Single.create { emitter: SingleEmitter<Article?> ->

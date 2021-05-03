@@ -14,6 +14,7 @@ import timber.log.Timber
  * Created by Amy on 2019-10-08
  */
 object LofterParser {
+    @JvmStatic
     fun LofterPaser(queryUrl: String): Single<Article?> {
         return Single.create { emitter: SingleEmitter<Article?> ->
             try {

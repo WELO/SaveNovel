@@ -35,11 +35,11 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun initProgressDialog() {
         progressDialog = AlertDialog.Builder(context, R.style.CustomProgressDialog).create()
         val loadView = LayoutInflater.from(context).inflate(R.layout.layout_progress_dialog, null)
-        progressDialog.setView(loadView, 0, 0, 0, 0)
-        progressDialog.setCanceledOnTouchOutside(false)
-        progressDialog.setCancelable(false)
+        progressDialog?.setView(loadView, 0, 0, 0, 0)
+        progressDialog?.setCanceledOnTouchOutside(false)
+        progressDialog?.setCancelable(false)
         progressDialogMsg = loadView.findViewById(R.id.tvTip)
-        progressDialogMsg.setText(R.string.common_loading)
+        progressDialogMsg?.setText(R.string.common_loading)
     }
 
     protected fun showProgressDialog() {
