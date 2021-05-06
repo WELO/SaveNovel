@@ -91,10 +91,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (view == null) {
             view = View(this)
         }
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        if (view != null && imm != null) {
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
+        (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)?.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     fun onPageCancel(view: View?) {
