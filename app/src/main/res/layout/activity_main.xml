@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorblack"
                 android:textSize="@dimen/text_small"
-                android:text="此ＡＰＰ目前支援AO3及Lofter兩個網站，輸入網址後會自動判斷，請先選擇要儲存的資料夾位置，再輸入文章網址"/>
+                android:text="@string/text_info"/>
         <TextView
                 android:id="@+id/tv_folder_path_title"
                 android:layout_width="match_parent"
@@ -26,18 +26,18 @@
                 android:textColor="@color/colorblack"
                 android:textSize="@dimen/text_normal"
                 android:layout_marginTop="@dimen/space_second"
-                android:text="文章儲存資料夾"/>
+                android:text="@string/text_folder"/>
 
         <TextView
                 android:id="@+id/tv_folder_path"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="當前無選擇資料夾"
+                android:hint="@string/empty_folder"
                 android:textColor="@color/colorBlue3"/>
         <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="選擇儲存資料夾"
+                android:text="@string/select_folder"
                 android:onClick="folderChooser"
                 android:textColor="@color/colorWhite"
                 android:background="@color/colorPrimary"/>
@@ -48,16 +48,16 @@
                 android:textColor="@color/colorblack"
                 android:textSize="@dimen/text_normal"
                 android:layout_marginTop="@dimen/space_second"
-                android:text="請輸入AO3或Lofter文章網址"/>
+                android:text="@string/text_url_info"/>
         <EditText
                 android:id="@+id/tv_url_path"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="網址"/>
+                android:hint="@string/hint_url"/>
         <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="解析並儲存"
+                android:text="@string/btn_save_and_parse"
                 android:onClick="parseUrl"
                 android:background="@color/colorPrimary"
                 android:textColor="@color/colorWhite"/>

@@ -5,6 +5,13 @@
     <string name="common_cencel">取消</string>
     <string name="common_loading">Loading…</string>
 
+    <string name="text_info">此ＡＰＰ目前支援AO3及Lofter兩個網站，輸入網址後會自動判斷，請先選擇要儲存的資料夾位置，再輸入文章網址</string>
+    <string name="text_folder">文章儲存資料夾</string>
+    <string name="empty_folder">當前無選擇資料夾</string>
+    <string name="select_folder">選擇儲存資料夾</string>
+    <string name="text_url_info">請輸入AO3或Lofter文章網址"</string>
+    <string name="hint_url">網址</string>
+    <string name="btn_save_and_parse">解析並儲存"</string>
 
 
     <string name="file_permission">需要資料儲存權限以儲存小說</string>
